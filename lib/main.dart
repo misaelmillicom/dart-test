@@ -53,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String name = "";
   late double ddS;
   String Camel_tres = "";
+  Map<int, String> mapData;
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
