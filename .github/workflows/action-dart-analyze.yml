@@ -13,5 +13,4 @@ jobs:
     - name: Analyze Flutter
       uses: ValentinVignal/action-dart-analyze@v0.15
       with:
-        fail-on: 'warning'
-        check-renamed-files: true
+        fail-on: 'info'
