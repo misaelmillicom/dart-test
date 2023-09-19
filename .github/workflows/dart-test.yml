@@ -4,10 +4,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 name: Dart Analyzer to SARIF
-on:
-   push:
-    branches:
-      - main  # Cambia "main" al nombre de tu rama principal si es diferente
+on: [pull_request]
 jobs:
   dart-analyzer:
     permissions:
@@ -18,7 +15,7 @@ jobs:
     name: Dart Analyzer to SARIF
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
       - name: Dart Analyze
         run: dart analyze > dart_analyze.txt || true
