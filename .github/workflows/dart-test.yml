@@ -1,25 +1,26 @@
-on: push
+name: Dart Analyze
 
-name: Sample Workflow
+on:
+  push:
+    branches:
+      - main  # Cambia "main" al nombre de tu rama principal si es diferente
 
 jobs:
-  build:
-    name: Example
+  analyze:
+    name: Run Dart Analyze
     runs-on: ubuntu-latest
-    container:
-      image:  google/dart:latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-      - name: Install dependencies
-        run: dart pub get
-      - name: Analyze Dart
-        uses: zgosalvez/github-actions-analyze-dart@v1
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Analyze project source
-        run: dart analyze
+    - name: Set up Dart
+      uses: subosito/dart@v4
+      with:
+        sdk: '2.15.0'  # Puedes ajustar la versión de Dart según tus necesidades
 
-      - name: Run tests
-        run: dart test
+    - name: Install dependencies
+      run: dart pub get
+
+    - name: Analyze Dart code
+      run: dart analyze
